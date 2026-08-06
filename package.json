@@ -1,6 +1,6 @@
 {
   "name": "@uptimely/sdk",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Official TypeScript SDK for the Uptimely public API (https://app.getuptimely.com/v1).",
   "license": "MIT",
   "type": "module",
@@ -42,7 +42,6 @@
   },
   "publishConfig": {
     "access": "public",
-    "provenance": true,
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
