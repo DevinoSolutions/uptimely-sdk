@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/DevinoSolutions/uptimely-sdk.git"
   },
-  "homepage": "https://getuptimely.com/developers",
+  "homepage": "https://getuptimely.com/docs/api",
   "bugs": {
     "url": "https://github.com/DevinoSolutions/uptimely-sdk/issues"
   },

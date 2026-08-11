@@ -4,7 +4,7 @@ Official TypeScript SDK for the [Uptimely](https://getuptimely.com) public
 API — monitors, incidents, alerts, scheduled maintenance, status pages,
 on-call, usage, and outbound webhooks.
 
-- **Docs**: https://getuptimely.com/developers
+- **Docs**: https://getuptimely.com/docs/api
 - **OpenAPI 3.1 spec**: generated from the exact same schemas that validate
   every request server-side — the SDK can't drift from the API.
 
