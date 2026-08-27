@@ -62,10 +62,12 @@ export type {
 export type {
   CreateMonitorBody,
   CreatedMonitor,
+  DeletedMonitor,
   ListMonitorsQuery,
   Monitor,
   MonitorStatusHistoryEntry,
   MonitorStatusHistoryQuery,
+  UpdateMonitorBody,
 } from "./resources/monitors";
 export type { OnCallCurrent } from "./resources/on-call";
 export type {
@@ -73,8 +75,15 @@ export type {
   ScheduledMaintenance,
 } from "./resources/scheduled-maintenances";
 export type {
+  AttachStatusPageResourceBody,
+  CreateStatusPageBody,
+  DeletedStatusPage,
+  DetachedStatusPageResource,
+  ListStatusPageResourcesQuery,
   ListStatusPagesQuery,
   StatusPage,
+  StatusPageResource,
+  UpdateStatusPageBody,
 } from "./resources/status-pages";
 export type { Usage } from "./resources/usage";
 export type {

@@ -1,8 +1,10 @@
 import type {
   createMonitorRoute,
+  deleteMonitorRoute,
   getMonitorRoute,
   listMonitorsRoute,
   monitorStatusHistoryRoute,
+  updateMonitorRoute,
 } from "@uptimely/contracts";
 
 import type {
@@ -19,6 +21,8 @@ export type Monitor = RouteResult<typeof getMonitorRoute>;
 export type ListMonitorsQuery = RouteQuery<typeof listMonitorsRoute>;
 export type CreateMonitorBody = RouteBody<typeof createMonitorRoute>;
 export type CreatedMonitor = RouteResult<typeof createMonitorRoute>;
+export type UpdateMonitorBody = RouteBody<typeof updateMonitorRoute>;
+export type DeletedMonitor = RouteResult<typeof deleteMonitorRoute>;
 export type MonitorStatusHistoryEntry = EnvelopeItem<
   RouteResult<typeof monitorStatusHistoryRoute>
 >;
@@ -57,6 +61,36 @@ export class Monitors extends ApiResource {
       path: "/v1/monitors",
       body,
       idempotent: true,
+      options,
+    });
+  }
+
+  /**
+   * Change a monitor's editable fields. Omitted fields are left untouched;
+   * `description` accepts null to clear it. Requires write access.
+   */
+  update(
+    monitorId: string,
+    body: UpdateMonitorBody,
+    options?: RequestOptions,
+  ): Promise<Monitor> {
+    return this._core.request({
+      method: "PATCH",
+      path: `/v1/monitors/${encodeURIComponent(monitorId)}`,
+      body,
+      options,
+    });
+  }
+
+  /**
+   * Delete a monitor: probing stops and any alert it auto-raised is resolved.
+   * To silence one temporarily without losing its uptime record, mute it.
+   * Requires write access.
+   */
+  delete(monitorId: string, options?: RequestOptions): Promise<DeletedMonitor> {
+    return this._core.request({
+      method: "DELETE",
+      path: `/v1/monitors/${encodeURIComponent(monitorId)}`,
       options,
     });
   }

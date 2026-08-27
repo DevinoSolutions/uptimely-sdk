@@ -50,7 +50,26 @@ await uptimely.incidents.declare({
   title: "Checkout latency elevated",
   monitor_ids: [monitor.id],
 });
+
+// Edit or remove a monitor. Omitted fields are left untouched.
+await uptimely.monitors.update(monitor.id, { monitoring_interval: "*/1 * * * *" });
+await uptimely.monitors.delete(monitor.id);
+
+// Put a monitor on a status page (and take it off again).
+const page = await uptimely.statusPages.create({
+  name: "Acme Status",
+  is_public: true,
+});
+const resource = await uptimely.statusPages.attachResource(page.id, {
+  monitor_id: monitor.id,
+  show_uptime_percent: true,
+});
+await uptimely.statusPages.detachResource(page.id, resource.id);
 ```
+
+Writes need a Pro plan, a key with the matching `:write` scope
+(`monitors:write`, `status-pages:write`, …) and the project's
+**programmatic write operations** switch turned on.
 
 ## Pagination
 
