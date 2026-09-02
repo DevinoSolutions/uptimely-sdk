@@ -63,15 +63,18 @@
     "build": "tsc -p tsconfig.contract-types.json && tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "size": "size-limit",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@size-limit/preset-small-lib": "13.0.3",
     "@types/node": "^20",
     "@uptimely/contracts": "workspace:*",
     "@uptimely/shared": "workspace:*",
+    "size-limit": "13.0.3",
     "tsup": "8.5.1",
     "typescript": "^5.9.3",
     "vitest": "4.1.10"
