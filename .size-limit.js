@@ -16,10 +16,15 @@
  *   its weight is decided by a version bump, not by SDK code, and folding it
  *   in would mean a zod release silently eating the whole budget while our
  *   own regressions hide underneath it.
- * - The node builtin is listed under BOTH spellings because tsup emits the
- *   bare `crypto` specifier even though the source imports `node:crypto`
- *   (see the note in the README/tsup config); listing one spelling only made
- *   the esbuild step fail to resolve it.
+ * - The node builtin is listed under BOTH spellings. `node:crypto` is what
+ *   dist now emits (tsup's `removeNodeProtocol` is off — see tsup.config.ts,
+ *   fixed 2026-09-09; it used to rewrite the specifier down to a bare
+ *   `crypto`). The bare spelling is kept beside it because size-limit's
+ *   esbuild step resolves whatever the file says, and a published artifact
+ *   this budget cannot resolve fails as a size error rather than as the
+ *   specifier regression it would actually be — that regression has its own
+ *   pin in tests/the-published-webhooks-entry-imports-node-crypto-and-the-
+ *   main-entry-imports-nothing.test.ts.
  *
  * Budgets are the measured size plus ~25% headroom (measured 2026-09-02:
  * index 3.26 kB, webhooks 792 B, minified + brotlied). They are a REGRESSION
