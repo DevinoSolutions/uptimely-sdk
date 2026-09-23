@@ -1,5 +1,38 @@
 # @uptimely/sdk
 
+## 0.2.0
+
+### Minor Changes
+
+- 88a2d72: Add the monitor and status-page write operations.
+
+  - `monitors.update(id, body)` / `monitors.delete(id)` — change a monitor's
+    name, description, target url/host, check interval or request timeout, or
+    remove it (deleting also resolves the alerts it auto-raised).
+  - `statusPages.create(body)` / `.update(id, body)` / `.delete(id)` — manage
+    status pages, including their public/private visibility.
+  - `statusPages.listResources(id)` / `.attachResource(id, body)` /
+    `.detachResource(id, resourceId)` — choose which monitors a status page
+    shows.
+
+  The status-page writes need the new `status-pages:write` scope on the API key;
+  the monitor writes use the existing `monitors:write`. All of them are Pro-plan
+  operations, like every other write on the API.
+
+### Patch Changes
+
+- 8f62ef7: `@uptimely/sdk/webhooks` now imports `node:crypto` explicitly.
+
+  The published `dist/webhooks.js` and `dist/webhooks.cjs` carried a bare
+  `crypto` specifier even though the source imports `node:crypto` — the bundler
+  was stripping the prefix. Node resolves both spellings, so nothing was broken
+  at runtime under Node, but a bundler targeting a non-Node runtime has no
+  `crypto` builtin to map and could fail to resolve the `./webhooks` subpath.
+  Both output formats now say `node:crypto` verbatim.
+
+  No API change. The main `@uptimely/sdk` entry is unaffected and still carries
+  no node imports at all.
+
 ## 0.1.0
 
 ### Minor Changes
