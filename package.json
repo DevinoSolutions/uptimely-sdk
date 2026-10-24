@@ -67,7 +67,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "zod": "^4.4.3"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "13.0.3",
