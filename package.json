@@ -1,22 +1,25 @@
 {
   "name": "@uptimely/sdk",
   "version": "0.2.0",
-  "description": "Official TypeScript SDK for the Uptimely public API (https://app.getuptimely.com/v1).",
+  "description": "Official TypeScript SDK for Uptimely (getuptimely.com), the uptime monitoring, status page, incident management and on-call platform by Devino Solutions. Wraps the public API at https://app.getuptimely.com/v1.",
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DevinoSolutions/uptimely-sdk.git"
   },
-  "homepage": "https://getuptimely.com/docs/api",
+  "homepage": "https://getuptimely.com",
   "bugs": {
     "url": "https://github.com/DevinoSolutions/uptimely-sdk/issues"
   },
   "keywords": [
     "uptimely",
+    "getuptimely",
     "uptime",
+    "uptime-monitoring",
     "monitoring",
     "status-page",
+    "on-call",
     "incidents",
     "api",
     "sdk",

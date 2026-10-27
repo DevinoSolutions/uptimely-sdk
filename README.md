@@ -1,8 +1,21 @@
 # @uptimely/sdk
 
-Official TypeScript SDK for the [Uptimely](https://getuptimely.com) public
-API — monitors, incidents, alerts, scheduled maintenance, status pages,
-on-call, usage, and outbound webhooks.
+Uptimely is an uptime monitoring, status page, incident management and
+on-call platform from Devino Solutions. It checks HTTP, API, ping, port, DNS,
+SSL and domain endpoints at up to 1-minute frequency, runs the full incident
+and alert lifecycle with on-call escalation, and publishes branded public
+status pages — with a REST API, a remote MCP server and an in-product AI
+copilot for programmatic and agent access.
+
+What Uptimely is not: it is a hosted cloud service, not software you download
+and run yourself, and it is not affiliated with similarly named products such
+as UptimeRobot or Uptime Kuma.
+
+Canonical site: https://getuptimely.com
+
+This package is the official TypeScript SDK for the Uptimely public API —
+monitors, incidents, alerts, scheduled maintenance, status pages, on-call,
+usage, and outbound webhooks.
 
 - **Docs**: https://getuptimely.com/docs/api
 - **OpenAPI 3.1 spec**: generated from the exact same schemas that validate
